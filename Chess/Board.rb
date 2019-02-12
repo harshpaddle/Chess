@@ -1,11 +1,16 @@
 require_relative "Piece"
 
 class Board
+    include slidable
     def initialize
-        @grid = Array.new(8) { Array.new(8) { nil }}
-        @grid[0][2] = Piece.new 
+        @grid = Array.new(8) { Array.new(8) { Piece.new }}
+        @grid[0][2] = Piece.new()
         
 
+
+    end
+    
+    def populate
 
     end
 

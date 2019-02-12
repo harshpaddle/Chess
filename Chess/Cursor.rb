@@ -102,12 +102,11 @@ class Cursor
     if valid_pos?(new_pos)
       @cursor_pos = new_pos
     end
-
-    #so when we're changing 
   end
+
   def valid_pos?(diff)
     x, y = diff
-       x.between?(0, 7) && y.between?(0, 7)
+    x.between?(0, 7) && y.between?(0, 7)
   end
 
  

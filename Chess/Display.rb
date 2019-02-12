@@ -13,22 +13,21 @@ class Display
     end
 
     def render
-        cursor.get_input
+        system("clear")
         (0..7).each do |row|
-            row_str = "|"
+            puts 
             (0..7).each do |col|
-                piece = @board[[row, col]]
-
-                if piece.nil?
-                    row_str += "_|"
+                if @cursor.cursor_pos == [row, col]
+                    print (@board[[row, col]].symbol.to_s.on_yellow + " ").colorize(:blue)
                 else
-                    row_str += piece.symbol + "|" 
-                end
-                if piece == cursor
-                    row_str.colorize(:light_blue)
-                end
+                    if [row, col].sum.even?
+                        print @board[[row, col]].symbol.to_s.on_blue + " "
+                    else
+                        print @board[[row, col]].symbol.to_s.on_black + " "
+                    end
+                    # print @board[[row, col]].symbol.to_s + "|".colorize(:red)
+                end 
             end
-            puts row_str
         end
     end
 
